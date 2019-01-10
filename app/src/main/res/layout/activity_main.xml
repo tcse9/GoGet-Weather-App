@@ -16,6 +16,196 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/layoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{uimanager.layoutRootVisibility}"
+            android:layout_margin="@dimen/dimen_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtCurrentTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@{uimanager.currentTemperature}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_28sp"/>
+                <TextView
+                    android:id="@+id/txtCurrentLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Sydney, AU"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/txt_28sp"/>
+
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardCornerRadius="@dimen/card_corner_rad"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/today"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtStatusToday"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.statusToday}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtTodaysTemperature"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.todaysTemperature}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1.5"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:background="@color/colorWindowBackground"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tomorrow"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtStatusTomorrow"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.statusTomorrow}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtTomorrowsTemperature"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.tomorrowsTemperature}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:background="@color/colorWindowBackground"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Day after tomorrow"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtStatusDayAfterTomorrow"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.statusDayAfterTomorrow}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/txtDayAfterTomorrowsTemperature"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{uimanager.tomorrowsTemperature}"
+                            android:padding="@dimen/dimen_10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorBlack"
+                            android:layout_weight="1"/>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+
+
 
 
         <ProgressBar

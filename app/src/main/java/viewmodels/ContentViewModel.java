@@ -6,14 +6,15 @@ import android.arch.lifecycle.MutableLiveData;
 
 import javax.inject.Inject;
 
-import daggermodules.ApiCallerModule;
 import core.ApplicationSingleton;
+import daggermodules.ApiCallerModule;
 import models.WeatherBase;
 
 public class ContentViewModel extends AndroidViewModel {
 
     @Inject
     ApiCallerModule apiCallerModule;
+    private MutableLiveData<String> currentTemperature = new MutableLiveData<>();
 
     /**
      * View model constructor
@@ -45,10 +46,6 @@ public class ContentViewModel extends AndroidViewModel {
 
         return apiCallerModule.getWeatherBaseMutableLiveData();
     }
-
-
-
-
 
 
 

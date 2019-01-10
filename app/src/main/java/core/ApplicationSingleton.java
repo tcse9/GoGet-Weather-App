@@ -224,4 +224,17 @@ public class ApplicationSingleton extends MultiDexApplication {
     public BaseComponents getBaseComponents() {
         return baseComponents;
     }
+
+
+    /**
+     * Capilizes the first letter of a given word
+     * @param original
+     * @return
+     */
+    public String capitalizeFirstLetter(String original) {
+        if (original == null || original.length() == 0) {
+            return original;
+        }
+        return original.substring(0, 1).toUpperCase() + original.substring(1);
+    }
 }
