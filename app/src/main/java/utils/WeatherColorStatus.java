@@ -3,10 +3,7 @@ package utils;
 import com.binate.gogetweatherapp.R;
 
 public enum WeatherColorStatus {
-    CLEAR,
-    CLOUDY,
-    SNOW,
-    RAIN;
+    CLEAR, CLOUDY, SNOW, RAIN, WIND, FOG;
 
     public static int getColorValue(WeatherColorStatus colorStatus) {
         switch (colorStatus) {
@@ -20,6 +17,12 @@ public enum WeatherColorStatus {
 
             case RAIN:
                 return R.color.colorRainy;
+
+            case WIND:
+                return R.color.colorWind;
+
+            case FOG:
+                return R.color.colorFog;
 
             default:
                 return R.color.colorClear;

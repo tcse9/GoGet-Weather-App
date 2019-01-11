@@ -22,6 +22,7 @@
         </activity>
         <activity
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/weather_details"
             android:name=".MainActivity"/>
     </application>
 

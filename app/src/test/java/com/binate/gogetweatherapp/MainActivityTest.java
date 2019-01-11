@@ -10,21 +10,22 @@ import javax.inject.Inject;
 import daggermodules.ApiCallerModule;
 
 
+
 @RunWith(RobolectricTestRunner.class)
 
 @Config(manifest=Config.NONE, sdk = 26, application = TestApplication.class)
-public class MainActivityTest {
+public class MainActivityTest{
+
 
     @Inject
     ApiCallerModule apiCallerModule;
+    TestApplication app;
 
     @Before
     public void before(){
 
-        TestApplication app = (TestApplication) RuntimeEnvironment.application;
+        app = (TestApplication) RuntimeEnvironment.application;
         app.getOrCreateApplicationComponent().inject(this);
-
-
 
     }
 
@@ -35,6 +36,8 @@ public class MainActivityTest {
     public void test(){
         apiCallerModule.invokeApiWeatherBase();
     }
+
+
 
 
 }

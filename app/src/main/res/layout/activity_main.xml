@@ -37,16 +37,16 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:text="@{uimanager.currentTemperature}"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/txt_28sp"/>
+                    android:textColor="@color/colorTextPurple"
+                    android:textSize="@dimen/txt_24sp"/>
                 <TextView
                     android:id="@+id/txtCurrentLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:text="Sydney, AU"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/txt_28sp"/>
+                    android:textColor="@color/colorTextPurple"
+                    android:textSize="@dimen/txt_24sp"/>
 
 
             </LinearLayout>
@@ -60,6 +60,7 @@
                 app:cardUseCompatPadding="true"
                 app:cardElevation="@dimen/card_elevation"
                 app:cardCornerRadius="@dimen/card_corner_rad"
+                app:cardBackgroundColor="@color/colorWhite"
                 android:layout_below="@+id/layoutTop">
 
                 <LinearLayout
@@ -211,7 +212,7 @@
                 android:layout_margin="@dimen/dimen_10dp"
                 android:padding="@dimen/dimen_10dp"
                 android:textStyle="bold"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorTextPurple"
                 android:text="@{uimanager.showMore}"/>
 
             <ScrollView

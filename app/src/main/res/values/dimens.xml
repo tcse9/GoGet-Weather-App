@@ -6,4 +6,5 @@
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="card_corner_rad">3dp</dimen>
     <dimen name="dimen_1dp">1dp</dimen>
+    <dimen name="txt_24sp">24sp</dimen>
 </resources>

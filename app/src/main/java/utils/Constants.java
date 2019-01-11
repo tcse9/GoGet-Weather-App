@@ -12,4 +12,12 @@ public interface Constants {
 
     //A static location long
     String LOCATION_LONG = "151.2094";
+
+    //Color for each weather type i.e. icon tag from api
+    String RAIN = "rain";
+    String CLOUD = "cloud";
+    String CLEAR = "clear";
+    String SNOW = "snow";
+    String WIND = "wind";
+    String FOG = "fog";
 }

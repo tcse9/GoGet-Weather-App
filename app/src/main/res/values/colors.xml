@@ -7,9 +7,12 @@
     <color name="colorWindowBackground">#bdbdbd</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorTextPurple">#616161</color>
 
     <color name="colorClear">#ffecb3</color>
     <color name="colorCloudy">#bbdefb</color>
     <color name="colorRainy">#90caf9</color>
     <color name="colorSnow">#eeeeee</color>
+    <color name="colorWind">#b9f6ca</color>
+    <color name="colorFog">#dcedc8</color>
 </resources>

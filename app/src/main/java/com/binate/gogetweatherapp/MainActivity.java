@@ -17,6 +17,7 @@ import adapters.WeatherAdapter;
 import binders.UiManager;
 import core.ApplicationSingleton;
 import models.WeatherBase;
+import utils.Constants;
 import utils.WeatherColorStatus;
 import viewmodels.ContentViewModel;
 
@@ -72,10 +73,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method populates the data into view received and maintained by ViewModel which is in this case {@link ContentViewModel} class
+     * @param weatherBase
+     */
     private void populateData(WeatherBase weatherBase){
 
         //Populating current t emperature
-        uiManager.setCurrentTemperature(String.valueOf(weatherBase.getCurrently().getTemperature())+" \u2109");
+        uiManager.setCurrentTemperature(String.valueOf(weatherBase.getCurrently().getTemperature())+" \u2109" + " ("+
+                ApplicationSingleton.getInstance().capitalizeFirstLetter(weatherBase.getCurrently().getIcon())+")");
 
 
         //Populating today's temperature and weather status
@@ -97,14 +103,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Populating background color according to the weather right now
-        if(weatherBase.getCurrently().getIcon().contains("rain")){
+        if(weatherBase.getCurrently().getIcon().contains(Constants.RAIN)){
             uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.RAIN)));
-        }else if(weatherBase.getCurrently().getIcon().contains("cloud")){
+        }else if(weatherBase.getCurrently().getIcon().contains(Constants.CLOUD)){
             uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.CLOUDY)));
-        }else if(weatherBase.getCurrently().getIcon().contains("clear")){
+        }else if(weatherBase.getCurrently().getIcon().contains(Constants.CLEAR)){
             uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.CLEAR)));
-        } else if(weatherBase.getCurrently().getIcon().contains("snow")){
+        } else if(weatherBase.getCurrently().getIcon().contains(Constants.SNOW)){
             uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.SNOW)));
+        } else if(weatherBase.getCurrently().getIcon().contains(Constants.WIND)){
+            uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.WIND)));
+        }else if(weatherBase.getCurrently().getIcon().contains(Constants.FOG)){
+            uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.FOG)));
+        }else {
+            uiManager.setBackgroundColorRootLayout(ContextCompat.getColor(this, WeatherColorStatus.getColorValue(WeatherColorStatus.CLEAR)));
         }
 
 
