@@ -23,4 +23,6 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.binate.gogetweatherapp", appContext.getPackageName());
     }
+
+
 }

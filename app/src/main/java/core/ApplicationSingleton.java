@@ -1,5 +1,6 @@
 package core;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -8,16 +9,12 @@ import android.content.pm.Signature;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.provider.Settings;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
 import android.util.Base64;
 import android.util.Log;
-
 import com.binate.gogetweatherapp.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -28,13 +25,12 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-
 import components.BaseComponents;
 import components.DaggerBaseComponents;
 import daggermodules.ApiCallerModule;
 import daggermodules.NetworkModule;
 
-public class ApplicationSingleton extends MultiDexApplication {
+public class ApplicationSingleton extends Application {
 
     private static ApplicationSingleton sInstance;
     private SharedPreferences mPref;
@@ -43,12 +39,6 @@ public class ApplicationSingleton extends MultiDexApplication {
 
     public static ApplicationSingleton getInstance() {
         return sInstance;
-    }
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(newBase);
-        MultiDex.install(this);
     }
 
 
