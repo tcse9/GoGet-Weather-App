@@ -17,6 +17,9 @@ public class UiManager extends BaseObservable {
     public String statusToday = "";
     public String statusTomorrow = "";
     public String statusDayAfterTomorrow = "";
+    public int backgroundColorRootLayout = 0;
+    public String showMore = "[+] Show More";
+    public int recyclerViewVisibility = View.GONE;
 
     /**
      * Method to set progressbar visibility statusToday
@@ -169,4 +172,61 @@ public class UiManager extends BaseObservable {
     }
 
 
+    /**
+     * Method to set the background color of root layout according to the weather status
+     * @param backgroundColorRootLayout
+     */
+    public void setBackgroundColorRootLayout(int backgroundColorRootLayout) {
+        this.backgroundColorRootLayout = backgroundColorRootLayout;
+        notifyPropertyChanged(BR._all);
+    }
+
+
+    /**
+     * Returns the background color of the root layout
+     * @return
+     */
+    public int getBackgroundColorRootLayout() {
+        return backgroundColorRootLayout;
+    }
+
+
+    /**
+     * Returns teh current show more status
+     * @return
+     */
+    public String getShowMore() {
+        return showMore;
+    }
+
+    /**
+     * Sets the show more functionality
+     * @param isShowing
+     */
+    public void setShowMore(boolean isShowing) {
+        if(isShowing){
+            this.showMore = "[-] Show Less";
+        }else {
+            this.showMore = "[+] Show More";
+        }
+        notifyPropertyChanged(BR._all);
+    }
+
+
+    /**
+     * Returns the recyclerview ccurrent visibility status
+     * @return
+     */
+    public int getRecyclerViewVisibility() {
+        return recyclerViewVisibility;
+    }
+
+    /**
+     * Sets the recyclerview visibility status
+     * @param recyclerViewVisibility
+     */
+    public void setRecyclerViewVisibility(int recyclerViewVisibility) {
+        this.recyclerViewVisibility = recyclerViewVisibility;
+        notifyPropertyChanged(BR._all);
+    }
 }

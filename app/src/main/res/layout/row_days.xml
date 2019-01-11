@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            android:padding="@dimen/dimen_10dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{uimanager.statusToday}"
+            android:padding="@dimen/dimen_10dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/txtTemperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{uimanager.todaysTemperature}"
+            android:padding="@dimen/dimen_10dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:layout_weight="1.5"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/colorWindowBackground"/>
+
+
+</RelativeLayout>

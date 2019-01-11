@@ -24,11 +24,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import daggermodules.ApiCallerModule;
 import components.BaseComponents;
 import components.DaggerBaseComponents;
+import daggermodules.ApiCallerModule;
 import daggermodules.NetworkModule;
 
 public class ApplicationSingleton extends MultiDexApplication {
@@ -237,4 +240,19 @@ public class ApplicationSingleton extends MultiDexApplication {
         }
         return original.substring(0, 1).toUpperCase() + original.substring(1);
     }
+
+
+
+    public String convertUnixTimeToDateFormat(long time){
+        final DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        final long unixTime = time;
+        final String formattedDtm = Instant.ofEpochSecond(unixTime)
+                .atZone(ZoneId.of("GMT+10"))
+                .format(formatter);
+
+        return formattedDtm;
+    }
+
 }

@@ -8,5 +8,8 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
 
-    <color name="colorNormal">#ffecb3</color>
+    <color name="colorClear">#ffecb3</color>
+    <color name="colorCloudy">#b3e5fc</color>
+    <color name="colorRainy">#448aff</color>
+    <color name="colorSnow">#eeeeee</color>
 </resources>

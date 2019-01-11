@@ -20,10 +20,12 @@
             android:id="@+id/layoutRoot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@{uimanager.backgroundColorRootLayout}"
             android:visibility="@{uimanager.layoutRootVisibility}"
             android:layout_margin="@dimen/dimen_10dp">
 
             <LinearLayout
+                android:id="@+id/layoutTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_10dp"
@@ -51,13 +53,14 @@
 
 
             <android.support.v7.widget.CardView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
                 app:cardUseCompatPadding="true"
                 app:cardElevation="@dimen/card_elevation"
                 app:cardCornerRadius="@dimen/card_corner_rad"
-                android:layout_centerInParent="true">
+                android:layout_below="@+id/layoutTop">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -199,6 +202,42 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtShowMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardView"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:padding="@dimen/dimen_10dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:text="@{uimanager.showMore}"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{uimanager.recyclerViewVisibility}"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_below="@+id/txtShowMore">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cardViewShowMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:cardCornerRadius="@dimen/card_corner_rad">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </android.support.v7.widget.CardView>
+
+            </ScrollView>
 
 
         </RelativeLayout>

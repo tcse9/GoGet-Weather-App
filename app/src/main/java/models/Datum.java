@@ -7,7 +7,7 @@ public class Datum {
 
     @SerializedName("time")
     @Expose
-    private Integer time;
+    private Long time;
     @SerializedName("summary")
     @Expose
     private String summary;
@@ -124,11 +124,11 @@ public class Datum {
     @Expose
     private Double apparentTemperatureMaxTime;
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
