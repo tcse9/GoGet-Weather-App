@@ -35,7 +35,7 @@ public class MainActivityTest{
      */
 
     @Test
-    public void netWorkConnectivityTest(){
+    public void networkConnectivityTest(){
         apiCallerModule.isInternetConnected();
     }
 
