@@ -232,17 +232,19 @@ public class ApplicationSingleton extends Application {
     }
 
 
+    /**
+     * This method converts Unix time to Date with format yyyy-MM-dd
+     * @param time
+     * @return
+     */
 
     public String convertUnixTimeToDateFormat(long time){
-        final DateTimeFormatter formatter =
-                DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        Date date = new java.util.Date(time*1000L);
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-4"));
+        String formattedDate = sdf.format(date);
 
-        final long unixTime = time;
-        final String formattedDtm = Instant.ofEpochSecond(unixTime)
-                .atZone(ZoneId.of("GMT+10"))
-                .format(formatter);
-
-        return formattedDtm;
+        return formattedDate;
     }
 
 }
