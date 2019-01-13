@@ -6,6 +6,7 @@ import android.util.Log;
 
 import javax.inject.Singleton;
 
+import core.ApplicationSingleton;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -27,6 +28,17 @@ public class ApiCallerModule {
     private NetworkClient networkClient;
 
 
+    /**
+     * This method simply checks the internet connectivity
+     * @return
+     */
+    @Singleton
+    @Provides
+    public boolean isInternetConnected(){
+        return ApplicationSingleton.getInstance().isNetworkConnected();
+    }
+
+
 
     /**
      * This method fetches data from server using RxJava and Retrofit
@@ -34,14 +46,19 @@ public class ApiCallerModule {
     @Singleton
     @Provides
     public ApiCallerModule invokeApiWeatherBase(){
-        networkClient = new NetworkClient();
 
-        NetworkInterface networkInterface = networkClient.getRetrofit().create(NetworkInterface.class);
+        if(isInternetConnected()){
+            networkClient = new NetworkClient();
 
-        disposables.add(networkInterface.getWeatherBase(Constants.API_KEY, UrlHelper.getLatLongBaseUrl())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(getObserver()));
+            NetworkInterface networkInterface = networkClient.getRetrofit().create(NetworkInterface.class);
+
+            disposables.add(networkInterface.getWeatherBase(Constants.API_KEY, UrlHelper.getLatLongBaseUrl())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(getObserver()));
+        }
+
+
 
         return this;
 

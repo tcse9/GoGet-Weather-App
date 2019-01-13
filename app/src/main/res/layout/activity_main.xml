@@ -21,8 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@{uimanager.backgroundColorRootLayout}"
-            android:visibility="@{uimanager.layoutRootVisibility}"
-            android:layout_margin="@dimen/dimen_10dp">
+            android:visibility="@{uimanager.layoutRootVisibility}">
 
             <LinearLayout
                 android:id="@+id/layoutTop"

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //check internet connectivity
-        if(!ApplicationSingleton.getInstance().isNetworkConnected()){
+        if(!contentViewModel.isInternetConnected()){
             uiManager.setShowNoInternetText(View.VISIBLE);
             uiManager.setLoadingProgressBarVisibility(View.GONE);
         }else {

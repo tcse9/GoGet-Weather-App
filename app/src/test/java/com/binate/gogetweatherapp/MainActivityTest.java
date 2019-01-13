@@ -29,13 +29,27 @@ public class MainActivityTest{
 
     }
 
+
+    /**
+     * This method simply checks the internet availability by executing apiCallerModule.isInternetConnected();
+     */
+
+    @Test
+    public void netWorkConnectivityTest(){
+        apiCallerModule.isInternetConnected();
+    }
+
+
     /**
      * This method simply test the api network call by executing apiCallerModule.invokeApiWeatherBase();
      */
+
     @Test
-    public void test(){
+    public void apiDataFetchTest(){
         apiCallerModule.invokeApiWeatherBase();
     }
+
+
 
 
 

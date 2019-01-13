@@ -47,6 +47,14 @@ public class ContentViewModel extends AndroidViewModel {
         return apiCallerModule.getWeatherBaseMutableLiveData();
     }
 
+    /**
+     * Returns the internet connectivity status
+     * @return
+     */
+    public boolean isInternetConnected(){
+        return apiCallerModule.isInternetConnected();
+    }
+
 
 
 
