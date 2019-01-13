@@ -52,23 +52,28 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initAction(){
 
-        uiManager.setLayoutRootVisibility(View.GONE);
 
-        contentViewModel.getContentListLiveData().observe(this, new Observer<WeatherBase>() {
-            @Override
-            public void onChanged(@Nullable WeatherBase weatherBase) {
-                if(weatherBase != null){
-                    Log.e("WEATHER", "is: "+weatherBase.getCurrently().getSummary());
+        //check internet connectivity
+        if(!ApplicationSingleton.getInstance().isNetworkConnected()){
+            uiManager.setShowNoInternetText(View.VISIBLE);
+            uiManager.setLoadingProgressBarVisibility(View.GONE);
+        }else {
+            uiManager.setLayoutRootVisibility(View.GONE);
 
-                    uiManager.setLoadingProgressBarVisibility(View.GONE);
-                    uiManager.setLayoutRootVisibility(View.VISIBLE);
-                    populateData(weatherBase);
+            contentViewModel.getContentListLiveData().observe(this, new Observer<WeatherBase>() {
+                @Override
+                public void onChanged(@Nullable WeatherBase weatherBase) {
+                    if(weatherBase != null){
+                        Log.e("WEATHER", "is: "+weatherBase.getCurrently().getSummary());
 
+                        uiManager.setLoadingProgressBarVisibility(View.GONE);
+                        uiManager.setLayoutRootVisibility(View.VISIBLE);
+                        populateData(weatherBase);
+
+                    }
                 }
-            }
-        });
-
-
+            });
+        }
 
 
     }

@@ -2,6 +2,9 @@ package utils;
 
 import com.binate.gogetweatherapp.R;
 
+/**
+ * This enum is for maintaining the color status per weather type i,e. icon
+ */
 public enum WeatherColorStatus {
     CLEAR, CLOUDY, SNOW, RAIN, WIND, FOG;
 

@@ -20,6 +20,7 @@ public class UiManager extends BaseObservable {
     public int backgroundColorRootLayout = 0;
     public String showMore = "[+] Show More";
     public int recyclerViewVisibility = View.GONE;
+    public int showNoInternetText = View.GONE;
 
     /**
      * Method to set progressbar visibility statusToday
@@ -214,7 +215,7 @@ public class UiManager extends BaseObservable {
 
 
     /**
-     * Returns the recyclerview ccurrent visibility status
+     * Returns the recyclerview current visibility status
      * @return
      */
     public int getRecyclerViewVisibility() {
@@ -228,5 +229,22 @@ public class UiManager extends BaseObservable {
     public void setRecyclerViewVisibility(int recyclerViewVisibility) {
         this.recyclerViewVisibility = recyclerViewVisibility;
         notifyPropertyChanged(BR._all);
+    }
+
+
+    /**
+     * Returns the visibility of no internet static text
+     * @return
+     */
+    public int getShowNoInternetText() {
+        return showNoInternetText;
+    }
+
+    /**
+     * Sets the no internet visibility status
+     * @param showNoInternetText
+     */
+    public void setShowNoInternetText(int showNoInternetText) {
+        this.showNoInternetText = showNoInternetText;
     }
 }
