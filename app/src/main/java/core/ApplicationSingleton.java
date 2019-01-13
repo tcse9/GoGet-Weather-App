@@ -241,7 +241,7 @@ public class ApplicationSingleton extends Application {
     public String convertUnixTimeToDateFormat(long time){
         Date date = new java.util.Date(time*1000L);
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT-4"));
+        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+10"));
         String formattedDate = sdf.format(date);
 
         return formattedDate;
